@@ -1,0 +1,8 @@
+octect de poids faible de rdx : dl
+rax valeur de retour
+rcx compteur de boucle
+rdx compteur
+rsi source index
+rdi destination index
+CX est un registre de co;pteur
+DX est un registre auxiliaire
