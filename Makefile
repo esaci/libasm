@@ -6,7 +6,7 @@
 #    By: elias <elias@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 15:35:09 by elias             #+#    #+#              #
-#    Updated: 2021/04/09 13:09:55 by elias            ###   ########.fr        #
+#    Updated: 2021/04/09 16:42:43 by elias            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ SRCS = ft_strlen.s \
 	ft_strcpy.s \
 	ft_strcmp.s \
 	ft_write.s \
+	ft_read.s \
+	ft_strdup.s \
 
 OBJS = $(SRCS:.s=.o)
 NAME = libasm.a

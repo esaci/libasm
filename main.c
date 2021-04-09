@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:45:59 by elias             #+#    #+#             */
-/*   Updated: 2021/04/09 13:13:32 by elias            ###   ########.fr       */
+/*   Updated: 2021/04/09 16:30:01 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,37 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+
+void	test_ft_read()
+{
+	int		fd;
+	int		ret;
+	size_t	count;
+	char	str[100];
+	char	filename[] = "test_read";
+
+	count = 50;
+	ret = 0;
+	printf("\033[0;34m");
+	printf("----------FT_READ---------\n");
+	printf("\033[0m");
+	fd = open(filename, O_RDONLY);
+	if (fd)
+	{
+		ret = ft_read(fd, str, count);
+		close(fd);
+		if (ret == -1)
+			printf("%s\n", strerror(errno));
+		else
+			printf("%s\n", str);
+	}
+	else
+	{
+		printf("Error: fd (read)\n");
+	}
+	printf("\n\n\n");
+}
+
 
 void	test_ft_strlen()
 {
@@ -83,10 +114,10 @@ void	test_ft_write()
 	int		fd;
 	size_t	count;
 	int		ret;
-	char	str[] = "Whatever you want to write in the file descriptor!";
+	char	str[] = "ok";
 	char	filename[] = "test_write";
 
-	count = 30;
+	count = 2;
 	ret = 0;
 	printf("\033[0;34m");
 	printf("---------FT_WRITE---------\n");
@@ -121,6 +152,8 @@ int		main(int argc, char *argv[])
 			test_ft_strcmp();
 		else if (!strcmp(argv[1], "write"))
 			test_ft_write();
+		else if (!strcmp(argv[1], "read"))
+			test_ft_read();
 	}
 	else
 	{

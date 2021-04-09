@@ -1,3 +1,4 @@
+rdi rsi rdx
 octect de poids faible de rdx : dl
 rax valeur de retour
 rcx compteur de boucle
