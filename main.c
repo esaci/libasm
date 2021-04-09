@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:45:59 by elias             #+#    #+#             */
-/*   Updated: 2021/04/08 18:09:40 by elias            ###   ########.fr       */
+/*   Updated: 2021/04/09 13:13:32 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,37 @@ void	test_ft_strcmp()
 	printf("\n\n\n");
 }
 
+void	test_ft_write()
+{
+	int		fd;
+	size_t	count;
+	int		ret;
+	char	str[] = "Whatever you want to write in the file descriptor!";
+	char	filename[] = "test_write";
+
+	count = 30;
+	ret = 0;
+	printf("\033[0;34m");
+	printf("---------FT_WRITE---------\n");
+	printf("\033[0m");
+	fd = open(filename, O_WRONLY);
+	if (fd)
+	{
+		ret = ft_write(fd, str, count);
+		close(fd);
+		if (ret == -1)
+			printf("%s\n", strerror(errno));
+		else
+			printf("open test_write to see the changes\n");
+	}
+	else
+	{
+		printf("Error: fd (write)\n");
+	}
+	printf("\n\n\n");
+}
+
+
 int		main(int argc, char *argv[])
 {
 	if (argc == 2)
@@ -88,6 +119,8 @@ int		main(int argc, char *argv[])
 			test_ft_strcpy();
 		else if (!strcmp(argv[1], "strcmp"))
 			test_ft_strcmp();
+		else if (!strcmp(argv[1], "write"))
+			test_ft_write();
 	}
 	else
 	{

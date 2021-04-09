@@ -4,5 +4,13 @@ rcx compteur de boucle
 rdx compteur
 rsi source index
 rdi destination index
-CX est un registre de co;pteur
+CX est un registre de compteur
 DX est un registre auxiliaire
+__errno_locatin : int *__errno_location(void) et retourne l'adresse de la variable errno qui est le message d'erreur genere par linux
+jl just less
+call prend une adresse en entre et 
+wrt permet d'acceder a l'adresse d'une donee lointaine
+plt Procedure Linkage Table 
+push permet de save la valeur
+pop  permet de recup la valeur sauvegarde et le mettre dans la variable
+syscall 
