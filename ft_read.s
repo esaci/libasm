@@ -4,16 +4,15 @@ section	.text
 
 ft_read:
     xor rax, rax
-	syscall					;rax = read | rdi = fd | rsi = *buf| rdx = *count
+	syscall					;0 = read | rdi = 1ere valeur => fd | rsi deuxieme valeur =>  *buf| rdx troisieme valeur => *count
     cmp rax, 0
     jl ft_read_error
     jmp ft_read_end
 
 ft_read_error:
     neg rax
-    push rax
+    mov rdi, rax
     call __errno_location wrt ..plt
-    pop rdi
     mov [rax], rdi
     mov rax, -1
 

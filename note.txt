@@ -1,3 +1,14 @@
+section text, la ou le code demarre, doit avoir global juste apres
+AX registre primaire : recoit et envoie des fnction
+CX registre fourtout et sert a incrementer ta boucle
+BX registre dispo mais il faut lpush avant
+DX registre qui stoque les donne lors dechange entre fonction
+SI registre source pour les pointeur venant dune fnction
+DI registre mais cette fois destination
+DL 8 derniers bits data de DX
+
+
+quand c pas scratch faut push avant puis pop
 rdi rsi rdx
 octect de poids faible de rdx : dl
 rax valeur de retour
@@ -14,4 +25,4 @@ wrt permet d'acceder a l'adresse d'une donee lointaine
 plt Procedure Linkage Table 
 push permet de save la valeur
 pop  permet de recup la valeur sauvegarde et le mettre dans la variable
-syscall 
+syscall reagit a eax

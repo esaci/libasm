@@ -10,13 +10,13 @@ ft_strdup:
 	call ft_strlen
 	inc rax
 	push rdi
-	mov rdi, rax
+	mov rdi, rax	; rdi premiere val => taille pour malloc
 	call malloc wrt ..plt
-	pop r8
+	pop r9
 	cmp rax, 0
 	je ft_strdup_error
 	mov rdi, rax
-	mov rsi, r8
+	mov rsi, r9
 	call ft_strcpy
 	jmp ft_strdup_ret
 

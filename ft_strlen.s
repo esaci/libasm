@@ -2,6 +2,7 @@ section	.text
 	global ft_strlen
 
 ft_strlen:
+	push rcx
 	xor rcx, rcx
 	xor rax, rax
 	cmp rdi, 0
@@ -15,4 +16,5 @@ ft_strlen_while:
 
 ft_strlen_end:
 	mov rax, rcx
+	pop rcx
 	ret

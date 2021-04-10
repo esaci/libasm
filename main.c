@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:45:59 by elias             #+#    #+#             */
-/*   Updated: 2021/04/09 16:30:01 by elias            ###   ########.fr       */
+/*   Updated: 2021/04/10 14:41:25 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,15 @@ void	test_ft_read()
 	if (fd)
 	{
 		ret = ft_read(fd, str, count);
-		close(fd);
 		if (ret == -1)
-			printf("%s\n", strerror(errno));
+			printf("maaa fnction : %s\n", strerror(errno));
 		else
-			printf("%s\n", str);
+			printf("maaa fnction : %s\n", str);
+		ret = read(fd, str, count);
+		if (ret == -1)
+			printf("vrai fnction : %s\n", strerror(errno));
+		else
+			printf("vrai fnction : %s\n", str);
 	}
 	else
 	{
@@ -139,6 +143,47 @@ void	test_ft_write()
 	printf("\n\n\n");
 }
 
+void	test_ft_strdup()
+{
+	char	str[] = "Hello World\n";
+	char	str2[] = "HELLO WORLD";
+	char	str3[] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+	char	str4[0];
+	char	*s1;
+	char	*s1o;
+	char	*s2;
+	char	*s2o;
+	char	*s3;
+	char	*s3o;
+	char	*s4;
+	char	*s4o;
+
+	s1 = NULL;
+	s1o = NULL;
+	s2 = NULL;
+	s2o = NULL;
+	s3 = NULL;
+	s3o = NULL;
+	s4 = NULL;
+	s4o = NULL;
+	printf("ft_strdup\n");
+	printf("\n");
+	s1 = ft_strdup(str);
+	s1o = strdup(str);
+	s2 = ft_strdup(str2);
+	s2o = strdup(str2);
+	s3 = ft_strdup(str3);
+	s3o = strdup(str3);
+	s4 = ft_strdup(str4);
+	s4o = strdup(str4);
+	printf("Vrai fnction |%s|\nMa fnction : |%s|\noriginal : |%s|\n\n",str, s1, s1o);
+	printf("Vrai fnction |%s|\nMa fnction : |%s|\noriginal : |%s|\n\n",str2, s2, s2o);
+	printf("Vrai fnction |%s|\nMa fnction : |%s|\noriginal : |%s|\n\n",str3, s3, s3o);
+	printf("Vrai fnction |%s|\nMa fnction : |%s|\noriginal : |%s|\n\n",str4, s4, s4o);
+	printf("\n\n\n");	
+}
+
+
 
 int		main(int argc, char *argv[])
 {
@@ -154,12 +199,8 @@ int		main(int argc, char *argv[])
 			test_ft_write();
 		else if (!strcmp(argv[1], "read"))
 			test_ft_read();
-	}
-	else
-	{
-		test_ft_strlen();
-		test_ft_strcpy();
-		test_ft_strcmp();
+		else if (!strcmp(argv[1], "strdup"))
+			test_ft_strdup();
 	}
 	return (1);
 }

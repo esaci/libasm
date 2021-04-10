@@ -2,6 +2,7 @@ section	.text
 	global ft_strcpy
 
 ft_strcpy:
+	push rcx
     xor rcx, rcx
     xor rdx, rdx
 	xor rax, rax
@@ -10,7 +11,7 @@ ft_strcpy:
     cmp rdi, 0
 	je ft_strcpy_err
 
-ft_strcpy_while:
+ft_strcpy_while:		; met rsi dans rdi
     cmp BYTE [rsi + rcx], 0	
 	je ft_strcpy_ret
     mov dl, BYTE [rsi + rcx]
@@ -21,9 +22,11 @@ ft_strcpy_while:
 ft_strcpy_ret:
 	mov dl, 0               
 	mov BYTE [rdi + rcx], dl
-	mov rax, rdi            
+	mov rax, rdi   
+	pop rcx         
 	ret                     
 
 ft_strcpy_err:
-    xor rax, rax            
+    xor rax, rax
+	pop rcx            
     ret
